@@ -1,0 +1,152 @@
+#:kivy 2.1.0
+#:import utils kivy.utils
+#:import Factory kivy.factory.Factory
+
+<MyPopup@Popup>
+    auto_dismiss: True
+    size_hint:0.6,0.3
+    pos_hint:{'center_x':0.5}
+    title:'Error'
+        # ids:popupTitle
+    BoxLayout:
+        orientation:'vertical'
+        Label:
+            id:message
+        
+<MysuccessPopup@Popup>
+    auto_dismiss: True
+    size_hint:0.6,0.3
+    pos_hint:{'center_x':0.5}
+    title:'Success'
+    BoxLayout:
+        orientation:'vertical'
+        Label:
+            id:message0
+<SignButton@Button>
+    font_size:25
+    background_normal:''
+    # pos_hint:{'center_x',0.5}
+    background_color: utils.get_color_from_hex('#8c8c8c')
+<TextInput>
+    font_size:20
+    background_normal:''
+<PassTextInput@TextInput>
+    font_size:20
+    background_normal:''
+    password:True
+    # size_hint:0.6,0.8
+    password_mask:'*'
+
+
+
+QuizScreenManager:
+    SigninWindow:
+    SignupWindow:
+    QuizWindow:
+
+<SigninWindow>:
+    name:'signin'
+    BoxLayout:
+        orientation:'vertical'
+        padding:20
+        spacing:15
+        
+
+        Label:
+            text:'Login'
+            id:loginHead
+            font_size:32
+            pos_hint:{'center_x':0.5}
+
+        GridLayout:
+            rols:2
+            cols:2
+            spacing:10
+
+            Label:
+                text:'Username'
+            TextInput:
+                multiline:False
+                id:username
+                hint_text:'username'
+            Label:
+                text:'Password'
+            PassTextInput:
+                multiline:False
+                id:passw0
+                hint_text:'password'
+
+        SignButton:
+            text:'Sign in'
+            id:signin
+            on_release:
+                root.signin()
+                root.manager.transition.direction='up'
+                # app.root.current='quiz'
+        SignButton:
+            text:'New here? sign up'
+            id:signupwindow
+            on_release:
+                app.root.current='signup'
+                root.manager.transition.direction='left'
+
+<SignupWindow>:
+    name:'signup'
+    BoxLayout:
+        orientation:'vertical'
+        spacing:20
+        padding:20
+        Label:
+            text:'Sign Up'
+            font_size:32
+            pos_hint:{'center_x':0.5}
+        GridLayout:
+            cols:2
+            rows:3
+            spacing:20
+            Label:
+                text:'Username'
+            TextInput:
+                multiline:False
+                id:uname
+                hint_text:'Enter username'
+            Label:
+                text:'Enter Password'
+            PassTextInput:
+                multiline:False
+                id:passw1
+                hint_text:'create password'
+            Label:
+                text:'Confirm Password'
+            PassTextInput:
+                multiline:False
+                id:passw2
+                hint_text:'re-enter password'
+        
+        SignButton:
+            text:'Sign up'
+            id:signup
+            on_release:
+                root.signup()
+
+        # Button:
+        #     text:'testing'
+        #     id:test
+        #     background_normal:''
+        #     background_color: (1,0,0,1)
+        #     # background_down:(0,1,0,1)
+        #     on_release:
+        #         root.test()
+
+        SignButton:
+            text:'Go back'
+            size_hint:1,0.5
+            on_release:
+                app.root.current='signin'
+                root.manager.transition.direction='right'
+                
+
+<QuizWindow>:
+    name:'quiz'
+    Button:
+        text:'Start the quiz'
