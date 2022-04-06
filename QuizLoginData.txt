@@ -3,5 +3,3 @@ Shazam, 4444444
 hello, 555555
 user01, 789987
 kushagra, 4444444
-poornima, 777777
-Hammu, 121121
