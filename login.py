@@ -1,5 +1,6 @@
 from kivy.app import App
 from kivy.lang import Builder
+from kivy.uix.button import Button
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.factory import Factory
 
@@ -23,7 +24,7 @@ class SigninWindow(Screen):
             if passw == data[usernam]:
                 spopup.ids.message0.text = '''Login successful'''
                 spopup.open()
-                self.manager.current = 'quiz'
+                self.manager.current = 'category'
             else:
                 popup.ids.message.text = '''Password Doesn't match'''
                 popup.open()
@@ -32,6 +33,10 @@ class SigninWindow(Screen):
             popup.ids.message.text = '''Shi username dalo'''
             popup.open()
             self.ids.username.text = ''
+
+
+class CategoryWindow(Screen):
+    pass
 
 
 class SignupWindow(Screen):
