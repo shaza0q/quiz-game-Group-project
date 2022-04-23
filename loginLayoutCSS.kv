@@ -12,7 +12,7 @@
         orientation:'vertical'
         Label:
             id:message
-        
+
 <MysuccessPopup@Popup>
     auto_dismiss: True
     size_hint:0.6,0.3
@@ -22,6 +22,14 @@
         orientation:'vertical'
         Label:
             id:message0
+
+<CategoryButton@Button>
+    font_name:'Bold.ttf'
+    font_size:25
+    background_normal:''
+    # pos_hint:{'center_x',0.5}
+    background_color: utils.get_color_from_hex('#003366')
+
 <SignButton@Button>
     font_size:25
     background_normal:''
@@ -43,6 +51,7 @@ QuizScreenManager:
     SigninWindow:
     SignupWindow:
     QuizWindow:
+    CategoryWindow:
 
 <SigninWindow>:
     name:'signin'
@@ -50,7 +59,7 @@ QuizScreenManager:
         orientation:'vertical'
         padding:20
         spacing:15
-        
+
 
         Label:
             text:'Login'
@@ -59,7 +68,7 @@ QuizScreenManager:
             pos_hint:{'center_x':0.5}
 
         GridLayout:
-            rols:2
+            rows:2
             cols:2
             spacing:10
 
@@ -122,7 +131,7 @@ QuizScreenManager:
                 multiline:False
                 id:passw2
                 hint_text:'re-enter password'
-        
+
         SignButton:
             text:'Sign up'
             id:signup
@@ -144,7 +153,37 @@ QuizScreenManager:
             on_release:
                 app.root.current='signin'
                 root.manager.transition.direction='right'
-                
+
+
+<CategoryWindow>:
+    name : 'category'
+    Image:
+        source : "blue2.jpg"
+
+
+
+
+    GridLayout:
+        rows : 5
+        cols : 1
+        spacing : 10
+        padding : 150
+
+
+
+        CategoryButton:
+            text : 'Technology'
+
+        CategoryButton:
+            text : 'Cars'
+        CategoryButton:
+            text : 'Movies'
+        CategoryButton:
+            text : 'Music'
+        CategoryButton:
+            text : 'International Day Trivia'
+
+
 
 <QuizWindow>:
     name:'quiz'
