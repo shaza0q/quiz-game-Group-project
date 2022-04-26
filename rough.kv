@@ -1,0 +1,45 @@
+#:kivy 2.1.0
+<QLabel@Label>:
+    halign:'center'
+    text_size:self.width,None
+<ToggleButton>:
+    size:0.6,0.4
+<MyLayout>:
+    orientation:'vertical'
+    size:root.width,root.height
+    padding:20
+    spacing:10
+    BoxLayout:
+        id:options
+        orientation:'vertical'
+        spacing:7
+        QLabel:
+            id:ques
+            text:'Questions coming soon...'
+        ToggleButton:
+            group:options
+            id:opt1
+            text:'option01'
+        ToggleButton:
+            group:options
+            id:opt2
+            text:'option02'
+        ToggleButton:
+            group:options
+            id:opt3
+            text:'option03'
+        ToggleButton:
+            group:options
+            id:opt4
+            text:'option04'
+        GridLayout:
+            cols:2
+            spacing:30
+            Button:
+                text:'Next'
+                on_release:
+                    root.openquestion()
+            Button:
+                text:'Exit'
+                on_release:
+                    exit()
