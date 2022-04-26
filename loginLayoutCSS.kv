@@ -1,0 +1,247 @@
+#:kivy 2.1.0
+#:import utils kivy.utils
+#:import Factory kivy.factory.Factory
+
+<MyPopup@Popup>
+    auto_dismiss: True
+    size_hint:0.6,0.3
+    pos_hint:{'center_x':0.5}
+    title:'Error'
+        # ids:popupTitle
+    BoxLayout:
+        orientation:'vertical'
+        Label:
+            id:message
+        
+<MysuccessPopup@Popup>
+    auto_dismiss: True
+    size_hint:0.6,0.3
+    pos_hint:{'center_x':0.5}
+    title:'Success'
+    BoxLayout:
+        orientation:'vertical'
+        Label:
+            id:message0
+<SignButton@Button>
+    font_size:25
+    background_normal:''
+    # pos_hint:{'center_x',0.5}
+    background_color: utils.get_color_from_hex('#8c8c8c')
+<TextInput>
+    font_size:20
+    background_normal:''
+<PassTextInput@TextInput>
+    font_size:20
+    background_normal:''
+    password:True
+    # size_hint:0.6,0.8
+    password_mask:'*'
+<QLabel@Label>
+    halign:'center'
+    text_size:self.width,None
+<ToggleButton>
+    size:0.6,0.4
+
+QuizScreenManager:
+    SigninWindow:
+    SignupWindow:
+    CategoryWindow:
+    IndexRulesWindow:
+    QuizMainWindow:
+
+<SigninWindow>:
+    name:'signin'
+    BoxLayout:
+        orientation:'vertical'
+        padding:20
+        spacing:15
+
+        Label:
+            text:'Login'
+            id:loginHead
+            font_size:32
+            pos_hint:{'center_x':0.5}
+
+        GridLayout:
+            rols:2
+            cols:2
+            spacing:10
+
+            Label:
+                text:'Username'
+            TextInput:
+                multiline:False
+                id:username
+                hint_text:'username'
+            Label:
+                text:'Password'
+            PassTextInput:
+                multiline:False
+                id:passw0
+                hint_text:'password'
+
+        SignButton:
+            text:'Sign in'
+            id:signin
+            on_release:
+                root.signin()
+                root.manager.transition.direction='up'
+                # app.root.current='quiz'
+        SignButton:
+            text:'New here? sign up'
+            id:signupwindow
+            on_release:
+                app.root.current='signup'
+                root.manager.transition.direction='left'
+
+<SignupWindow>:
+    name:'signup'
+    BoxLayout:
+        orientation:'vertical'
+        spacing:20
+        padding:20
+        Label:
+            text:'Sign Up'
+            font_size:32
+            pos_hint:{'center_x':0.5}
+        GridLayout:
+            cols:2
+            rows:3
+            spacing:20
+            Label:
+                text:'Username'
+            TextInput:
+                multiline:False
+                id:uname
+                hint_text:'Enter username'
+            Label:
+                text:'Enter Password'
+            PassTextInput:
+                multiline:False
+                id:passw1
+                hint_text:'create password'
+            Label:
+                text:'Confirm Password'
+            PassTextInput:
+                multiline:False
+                id:passw2
+                hint_text:'re-enter password'
+        
+        SignButton:
+            text:'Sign up'
+            id:signup
+            on_release:
+                root.signup()
+
+        SignButton:
+            text:'Go back'
+            size_hint:1,0.5
+            on_release:
+                app.root.current='signin'
+                root.manager.transition.direction='right'
+                
+
+<CategoryWindow>:
+    name:"category"
+    BoxLayout:
+        orientation:'vertical'
+        Label:
+            text:'Choose your category...'
+            font_size:25
+        Button:
+            text:'category 1'
+            id:category1
+            on_press:
+                root.category(self)
+                root.manager.transition.direction='left'
+
+        Button:
+            text:'category 2'
+            id:category2
+            on_release:
+                root.category(self)
+                root.manager.transition.direction='left'
+        Button:
+            text:'category 3'
+            id:category3
+            on_release:
+                root.category(self)
+                root.manager.transition.direction='left'
+        Button:
+            text:'category 4'
+            id:category4
+            on_release:
+                root.category(self)
+                root.manager.transition.direction='left'
+        Button:
+            text:'category 5'
+            id:category5
+            on_release:
+                root.category(self)
+                root.manager.transition.direction='left'
+
+<IndexRulesWindow>:
+    name:"indexrules"
+    BoxLayout:
+        orientation:'vertical'
+        spacing:20
+        padding:20
+        QLabel:
+            id:rullab
+            text:'Name of the quiz will appear after confirm button is pressed'
+        QLabel:
+            text:'Following are the rules...'
+        QLabel:
+            text:'Rule no.1\nRule no.2\nRule no.3'
+        Button:
+            text:'Confirmed'
+            on_release:
+                root.labelnam()
+        Button:
+            text:'Next'
+            on_release:
+                app.root.current='mainQuiz'
+                root.manager.transition.direction='left'
+
+<QuizMainWindow>:
+    name:'mainQuiz'
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+        padding:20
+        spacing:10
+        BoxLayout:
+            id:options
+            orientation:'vertical'
+            spacing:7
+            QLabel:
+                id:ques
+                text:'Questions coming soon...'
+            ToggleButton:
+                group:options
+                id:opt1
+                text:'option01'
+            ToggleButton:
+                group:options
+                id:opt2
+                text:'option02'
+            ToggleButton:
+                group:options
+                id:opt3
+                text:'option03'
+            ToggleButton:
+                group:options
+                id:opt4
+                text:'option04'
+            GridLayout:
+                cols:2
+                spacing:30
+                Button:
+                    text:'Next'
+                    on_release:
+                        root.openquestion()
+                Button:
+                    text:'Exit'
+                    on_release:
+                        exit()
+
