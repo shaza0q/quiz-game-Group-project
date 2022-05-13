@@ -1,0 +1,130 @@
+{
+  "CarsCategory": {
+    "question": [
+      "Q1. What was the original color for all Ferrari models?",
+      "Q2. Which animal features in the logo for Lamborghini?",
+      "Q3. What does BMW stand for?",
+      "Q4. Who made the first practical car in the world?",
+      "Q5. The automotive industry in India is the __ largest in the world",
+      "Q6. How many rings are in the Audi logo?",
+      "Q7. Which is the fastest road-going car in the world?",
+      "Q8. The best electric car company is ___",
+      "Q9. What Was The First Car Launched Into Space?",
+      "Q10. Name the American Formula One racing team that entered the sport for the first time in 2016."
+    ],
+    "answer": [4, 2, 3, 1, 4, 3, 2, 1, 2, 1],
+    "options": [
+      ["Black", "Yellow", "Orange", "Red"],
+      ["Horse", "Bull", "Jaguar", "Cheetah"],
+      [
+        "Bavarian Motor Works",
+        "Bravado Motor Works",
+        "Big Man's Work",
+        "Bihari Motor Wala"
+      ],
+      ["Karl Benz", "Nicolas Joseph Cugnot", "Wilhelm Maybach", "Daimler"],
+      ["First", "Second", "Seventh", "Fourth"],
+      ["3", "5", "4", "7"],
+      ["Bugati Veyron", "Devel Sixteen", "McLaren Speedtail", "Bugatti Bolide"],
+      ["Tesla", "Tata", "Rivian", "BMW"],
+      ["Tesla Roadster", "Tata Nano", "Rolls Royce", "Hennessey Venom GT"],
+      ["Haas", "Ferrari", "Force India", "Red Bull"]
+    ]
+  },
+  "EnvironmentCategory": {
+    "question": [
+      "Q1. When first International Yoga Day is observed in India ?",
+      "Q2.  Who is known as Father of Yoga?",
+      "Q3. When is the 'World Development Information Day' observed every year ?",
+      "Q4. When is the 'International Day of Mathematics' celebrated?",
+      "Q5. When is International Women's Day celebrated annually?",
+      "Q6.  When was International Women's Day celebrated for the first time ?",
+      "Q7. What is the World Health Organisation (WHO) slogan for this year's World Hand Hygiene Day?",
+      "Q8. When is the World Olympic Day or International Olympic Day celebrated every year? ",
+      "Q9. The first World Environment Day was held in which year?",
+      "Q10. The first World water day celebrated anually? "
+    ],
+    "answer": [2, 2, 1, 3, 2, 3, 1, 2, 2, 1],
+    "options": [
+      ["21 June 2014", "21 June 2015", "21 June 2016", "none of the above"],
+      ["Patanjali", "Shiva", " Brahma", "Tirumalai Krishnamacharya"],
+      ["October 24", "October 28", "October 30", "October 19"],
+      ["march 10", "march 21 ", "march 14", "march 16"],
+      ["march 14", "march 8", "february 12", "none of the above"],
+      ["1919", "1975", "1909", "none of these"],
+      [
+        "Seconds save lives – clean your hands",
+        "Hygiene Hands Healthy Life",
+        "Hygiene fo       All",
+        "Earth Hygiene"
+      ],
+      ["June 20", "June 23", "June 29", "June 30"],
+      ["1917", "1974", "1976", "1978"],
+      ["22 march", "18 march", "5 march", "20 march"]
+    ]
+  },
+  "BollywoodCategory": {
+    "question": [
+      "Q1. Lata Mangeshkar is considered as the doyenne of Hindi film music. But she has not sung a single song for one particular music director, do you know his name?",
+      "Q2. One of the films that revolutionized Hindi film music was 'Teesri Manzil'. This film marked the first big hit of a great music director, can you name him?",
+      "Q3. One of the superstars of Bollywood was Rajesh Khanna. Who was the famous singer who was known as the voice of Rajesh Khanna?",
+      "Q4. Which of these music directors was NOT a singer?",
+      "Q5. The superstar of the late 90's and 2000's was Shah Rukh Khan. 'Dilwale Dulhaniya Le Jayenge (DDLJ)' was a musical hit starring Shahrukh and Kajol. Which of these songs is from the film DDLJ?",
+      "Q6. Who was known as the King of Bollywood Music?",
+      "Q7. The Versatile Bollywood actor Irrfan Khan, who recently passed away, had won National award for which movie?",
+      "Q8. Which movie got Filmfare award for best film for year 2020?",
+      "Q9. Which female singer got best Filmfare female playback singer award for maximum number of times? ",
+      "Q10. Which among the following actor/actress is the first recipient of the Dadasaheb Phalke award? "
+    ],
+    "answer": [1, 4, 4, 2, 3, 3, 2, 1, 4, 1],
+    "options": [
+      ["O P Nayyar", "R D Burman", "Jaidev", "Khemchand Prakash"],
+      ["S D Burman", "Kalyanji-Anandji", "Shankar-Jaikishan", "R D Burman"],
+      ["Mohammed Rafi", "Talat Mahmood ", "Mukesh", "Kishore Kumar"],
+      ["S D Burman", "Roshan", "R D Burman", "C Ramachandra"],
+      [
+        "Dard E Disco",
+        "Ye Kaali Kaali Aankhen",
+        "Mehendi Laga Ke Rakhna",
+        "Chakde India"
+      ],
+      ["Kishore Kumar", "S D Burman", "R D Burman", "Muhammed Rafi"],
+      ["Lunch Box", "Paan Singh Tomar", "Life Of Pi", "Haidar"],
+      ["Gully Boy", "Panga", "Student of the year-2", "Baaghi"],
+      ["Asha Bhosle", "Alka Yagnik", "Shreya Ghoshal", "Both 1 and 2"],
+      ["Devika Rani", "Raj Kapoor", "Sashi Kapoor", "Nargis"]
+    ]
+  },
+  "LiteratureCategory": {
+    "question": [
+      "Q1. What is the collective noun for a group of pandas called?",
+      "Q2. What does come down but never goes up?",
+      "Q3. How many times does the average person laugh in a day?",
+      "Q4. Which sea creature has three hearts?",
+      "Q5. If you dug a hole through the centre of the earth starting from Spain which Country would you end up in",
+      "Q6. Which country invented Tea?",
+      "Q7. How many phases of the moon are there?",
+      "Q8. Which mammal does not have vocal cords?",
+      "Q9. What is the first letter on a typewriter?",
+      "Q10. Which of the following food item would not get spoilt till one month?"
+    ],
+    "answer": [3, 1, 2, 3, 1, 2, 4, 2, 2, 1],
+    "options": [
+      [
+        "A pride of pandas",
+        "A herd of pandas",
+        "An embarrassment of pandas",
+        "A flock of pandas"
+      ],
+      ["Rain", "Cloud", "Rainbow", "Sun"],
+      ["12", "13", "17", "15"],
+      ["Dolphin", "Shark ", "Octopus", "Whale"],
+      ["New Zealand", "Italy", "France", "India"],
+      ["France", "China", "India", "South Africa"],
+      ["5", "6", "7", "8"],
+      ["Bat", "Giraffe", "Deer", "Dog"],
+      ["A", "Q", "Z", "X"],
+      ["Potato chips", "Sweets", "Bread", "All of the above"]
+    ]
+  }
+}
