@@ -1,0 +1,402 @@
+#:kivy 2.1.0
+#:import utils kivy.utils
+#:import Factory kivy.factory.Factory
+
+<MyPopup@Popup>
+    auto_dismiss: True
+    size_hint:0.6,0.3
+    pos_hint:{'center_x':0.5}
+    title:'Error'
+        # ids:popupTitle
+    BoxLayout:
+        orientation:'vertical'
+        Label:
+            id:message
+
+<MysuccessPopup@Popup>
+    auto_dismiss: True
+    size_hint:0.6,0.3
+    pos_hint:{'center_x':0.5}
+    title:'Success'
+    BoxLayout:
+        orientation:'vertical'
+        Label:
+            id:message0
+<SButton@Button>
+    font_size:25
+    background_normal:''
+    background_color: utils.get_color_from_hex('#9cd4f4')
+    size_hint:0.5,0.6
+    pos_hint:{'center_x':0.5}
+
+<Button>
+    font_name:'sports_day'
+<TextInput>
+    font_size:20
+    background_normal:''
+    size_hint:1,0.4
+<PassTextInput@TextInput>
+    font_size:20
+    background_normal:''
+    password:True
+    # size_hint:0.6,0.8
+    password_mask:'*'
+
+<OToggleButton@ToggleButton>
+    size_hint:0.4,0.3
+    pos_hint:{'center_x':0.5}
+    font_name:'hungry'
+    font_size:20
+    background_normal:''
+    background_color: utils.get_color_from_hex('#9cd4f4')
+
+<LLabel@Label>
+    font_size:45
+    font_name:'Freshman'
+    outline_color:utils.get_color_from_hex('#416b22')
+    outline_width:2
+
+<CLabel@Label>
+    font_name:"sports_day"
+    font_size:50
+
+<RLabel@Label>
+    font_name:'hungry'
+    font_size:20
+    bold:True
+    halign:'center'
+    text_size:self.width,None
+
+QuizScreenManager:
+    WelcomeWindow:
+    SigninWindow:
+    SignupWindow:
+    CategoryWindow:
+    IndexRulesWindow:
+    QuizMainWindow:
+    ResultWindow:
+
+<WelcomeWindow>:
+    canvas.before:
+        Color:
+            rgba:utils.get_color_from_hex('#407f89')
+        Rectangle:
+            pos:self.pos
+            size:self.size
+    BoxLayout:
+        orientation:'vertical'
+        padding:50
+        spacing:10
+        Image:
+            source:'powder-blue-designify.png'
+            allow_stretch:True
+            keep_ratio:True
+            size_hint:1,1
+        LLabel:
+            text:'Welcome to the App'
+        SButton:
+            text:'4'
+            pos_hint:{'center_x':0.5}
+            size_hint:0.1,0.15
+            background_color:0,0,0,0
+            on_press:
+                root.pressed()
+                app.root.current='signin'
+                root.manager.transition.direction='up'
+            Image:
+                id:image
+                source:'power button'
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+
+<SigninWindow>:
+    name:'signin'
+    canvas.before:
+        Color:
+            rgba:utils.get_color_from_hex('#407f89')
+        Rectangle:
+            pos:self.pos
+            size:self.size
+
+    BoxLayout:
+        orientation:'vertical'
+        padding:20
+        spacing:15
+
+        LLabel:
+            text:'Login'
+            id:loginHead
+            pos_hint:{'center_x':0.5}
+
+        GridLayout:
+            rols:2
+            cols:2
+            spacing:20
+
+            RLabel:
+                text:'Username'
+            TextInput:
+                multiline:False
+                id:username
+                hint_text:'username'
+            RLabel:
+                text:'Password'
+            PassTextInput:
+                multiline:False
+                id:passw0
+                hint_text:'password'
+
+        GridLayout:
+            cols:2
+            spacing:20
+            padding:20
+            SButton:
+                text:'Sign in'
+                id:signin
+                on_release:
+                    root.signin()
+                    root.manager.transition.direction='up'
+                    # app.root.current='quiz'
+            SButton:
+                text:'New here? sign up'
+                id:signupwindow
+                on_release:
+                    app.root.current='signup'
+                    root.manager.transition.direction='left'
+
+<SignupWindow>:
+    name:'signup'
+    canvas.before:
+        Color:
+            rgba:utils.get_color_from_hex('#407f89')
+        Rectangle:
+            pos:self.pos
+            size:self.size
+    BoxLayout:
+        orientation:'vertical'
+        spacing:20
+        padding:20
+        LLabel:
+            text:'Sign Up'
+            pos_hint:{'center_x':0.5}
+        GridLayout:
+            cols:2
+            rows:3
+            spacing:20
+            RLabel:
+                text:'Username'
+            TextInput:
+                multiline:False
+                id:uname
+                hint_text:'Enter username'
+            RLabel:
+                text:'Enter Password'
+            PassTextInput:
+                multiline:False
+                id:passw1
+                hint_text:'create password'
+            RLabel:
+                text:'Confirm Password'
+            PassTextInput:
+                multiline:False
+                id:passw2
+                hint_text:'re-enter password'
+        GridLayout:
+            cols:2
+            spacing:20
+            padding:20
+            SButton:
+                text:'Sign up'
+                id:signup
+                on_release:
+                    root.signup()
+
+            SButton:
+                text:'Go back'
+                size_hint:1,0.5
+                on_release:
+                    app.root.current='signin'
+                    root.manager.transition.direction='right'
+                
+
+<CategoryWindow>:
+    name:"category"
+    canvas.before:
+        Color:
+            rgba:utils.get_color_from_hex('#407f89')
+        Rectangle:
+            pos:self.pos
+            size:self.size
+    BoxLayout:
+        orientation:'vertical'
+        spacing:20
+        padding:10
+        LLabel:
+            text:'Choose Category...'
+        SButton:
+            text:'Cars Craziester'
+            id:CarsCategory
+            on_press:
+                root.category(self)
+                root.manager.transition.direction='left'
+        SButton:
+            text:'Environment Maniac'
+            id:EnvironmentCategory
+            on_release:
+                root.category(self)
+                root.manager.transition.direction='left'
+        SButton:
+            text:'Bollywood Khan'
+            id:BollywoodCategory
+            on_release:
+                root.category(self)
+                root.manager.transition.direction='left'
+        SButton:
+            text:'Literature ka Keeda'
+            id:LiteratureCategory
+            on_release:
+                root.category(self)
+                root.manager.transition.direction='left'
+        SButton:
+            text:'Technical tech'
+            id:TechCategory
+            on_release:
+                root.category(self)
+                root.manager.transition.direction='left'
+
+<IndexRulesWindow>:
+    name:"indexrules"
+    canvas.before:
+        Color:
+            rgba:utils.get_color_from_hex('#407f89')
+        Rectangle:
+            pos:self.pos
+            size:self.size
+    BoxLayout:
+        orientation:'vertical'
+        spacing:20
+        padding:20
+        LLabel:
+            id:rullab
+            text:'Press Confirm button..'
+        RLabel:
+            text:'Following are the rules...'
+        RLabel:
+            text:'1. You have to  complete the quiz game within'
+        GridLayout:
+            cols:2
+            spacing:20
+            padding:20
+            SButton:
+                text:'Confirmed'
+                on_release:
+                    root.labelnam()
+            SButton:
+                text:'Next'
+                on_release:
+                    app.root.current='mainQuiz'
+                    root.manager.transition.direction='left'
+
+<QuizMainWindow>:
+    name:'mainQuiz'
+    canvas.before:
+        Color:
+            rgba:utils.get_color_from_hex('#407f89')
+        Rectangle:
+            pos:self.pos
+            size:self.size
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+        padding:20
+        spacing:10
+        BoxLayout:
+            id:options
+            orientation:'vertical'
+            spacing:7
+            GridLayout:
+                cols:2
+                spacing:20
+                RLabel:
+                    id:ques
+                    text:'Questions coming soon...'
+                    font_size:25
+                    bold:True
+                RLabel:
+                    id:timer
+                    text:'Time Left: '
+                    size_hint:0.5,0.5
+            OToggleButton:
+                group:options
+                id:opt1
+                text:'option01'
+                on_press:
+                    root.checkscore(1)
+                    root.openquestion()
+            OToggleButton:
+                group:options
+                id:opt2
+                text:'option02'
+                on_press:
+                    root.checkscore(2)
+                    root.openquestion()
+            OToggleButton:
+                group:options
+                id:opt3
+                text:'option03'
+                on_press:
+                    root.checkscore(3)
+                    root.openquestion()
+            OToggleButton:
+                group:options
+                id:opt4
+                text:'option04'
+                on_press:
+                    root.checkscore(4)
+                    root.openquestion()
+            GridLayout:
+                cols:2
+                spacing:20
+                padding:20
+                SButton:
+                    text:'Next'
+                    on_release:
+                        # root.timer_start()
+                        root.openquestion()
+                SButton:
+                    text:'Submit'
+                    on_release:
+                        app.root.current='result_window'
+                        root.manager.transition.direction='left'
+
+<ResultWindow>:
+    name:'result_window'
+    canvas.before:
+        Color:
+            rgba:utils.get_color_from_hex('#407f89')
+        Rectangle:
+            pos:self.pos
+            size:self.size
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+
+        CLabel:
+            text:'Congratulations!!!'
+        LLabel:
+            text:'Score: '
+            id:score_text
+        GridLayout:
+            cols:2
+            padding:25
+            spacing:20
+            size:root.width,root.height
+            SButton:
+                text:'Show Score'
+                on_press:
+                    root.show_score()
+            SButton:
+                text:'Exit'
+                on_press:
+                    exit()
